@@ -1,6 +1,7 @@
 package com.cibertec.clase1.controladores;
 
 import com.cibertec.clase1.entidades.Alumno;
+import com.cibertec.clase1.servicios.AlumnoServicios;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/alumno")
 public class ControladorBase {
+    private AlumnoServicios servicios;
+
+    public ControladorBase(AlumnoServicios servicios) {
+        this.servicios = servicios;
+    }
 
     @GetMapping("/1")
     public Alumno holaAlumnos() {
@@ -19,5 +25,10 @@ public class ControladorBase {
     @GetMapping("/2")
     public ResponseEntity<Alumno> holaAlumnos2() {
         return new ResponseEntity<>(new Alumno(), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<Iterable<Alumno>> getAll() {
+        return new ResponseEntity<>(servicios.findAll(), HttpStatus.OK);
     }
 }

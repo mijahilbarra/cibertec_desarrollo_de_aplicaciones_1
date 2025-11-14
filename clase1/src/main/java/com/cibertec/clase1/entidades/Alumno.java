@@ -16,4 +16,60 @@ public class Alumno {
     private Long codigoEstudiante;
     private double promedioNotas;
     private boolean activo;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+
+    public Long getCodigoEstudiante() {
+        return codigoEstudiante;
+    }
+
+    public void setCodigoEstudiante(Long codigoEstudiante) {
+        this.codigoEstudiante = codigoEstudiante;
+    }
+
+    public double getPromedioNotas() {
+        return promedioNotas;
+    }
+
+    public void setPromedioNotas(double promedioNotas) {
+        this.promedioNotas = promedioNotas;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
 }
