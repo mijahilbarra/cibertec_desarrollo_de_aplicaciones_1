@@ -15,4 +15,8 @@ public class AlumnoService {
     public Iterable<Alumno> findAll() {
         return alumnoRepository.findAll();
     }
+
+    public Alumno save(Alumno alumno) {
+        return alumnoRepository.save(alumno);
+    }
 }
