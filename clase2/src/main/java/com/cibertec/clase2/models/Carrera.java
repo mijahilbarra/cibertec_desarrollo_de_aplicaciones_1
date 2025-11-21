@@ -2,6 +2,8 @@ package com.cibertec.clase2.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Carreras")
 public class Carrera {
@@ -11,6 +13,8 @@ public class Carrera {
     private String nombreCarrera;
     private String jefeCarrera;
     private Integer cantidadCiclos;
+    @OneToMany(mappedBy = "carrera")
+    private List<Alumno> alumno;
 
     public Carrera() {
     }
