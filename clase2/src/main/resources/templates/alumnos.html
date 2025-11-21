@@ -27,7 +27,7 @@
     <tr th:each="alumno : ${alumnos}">
         <td th:text="${alumno.nombre}">Nombre</td>
         <td th:text="${alumno.apellido}"></td>
-        <td th:text="${alumno.carrera}"></td>
+        <td th:text="${alumno.carrera.nombreCarrera}"></td>
         <td th:text="${alumno.codigoEstudiante}"></td>
         <td th:text="${alumno.promedioNotas}"></td>
         <td th:text="${alumno.activo} ? 'OK' : 'Llamar a Soporte'"></td>

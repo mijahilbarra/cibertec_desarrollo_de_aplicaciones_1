@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,10 @@
     <input type="text" th:field="*{apellido}"/>
 
     <label>Carrera: </label>
-    <input type="text" th:field="*{carrera}"/>
+    <select th:field="*{carrera}">
+        <option th:each="carrera : ${carreras}" th:value="${carrera.id}"
+                th:text="${carrera.nombreCarrera}"></option>
+    </select>
 
     <label>Codigo Estudiante: </label>
     <input type="text" th:field="*{codigoEstudiante}"/>

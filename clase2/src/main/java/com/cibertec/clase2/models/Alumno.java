@@ -12,7 +12,9 @@ public class Alumno {
     private String nombre;
     @Column(name = "lastName")
     private String apellido;
-    private String carrera;
+    @ManyToOne
+    @JoinColumn(name = "carrera_id")
+    private Carrera carrera;
     private Long codigoEstudiante;
     private double promedioNotas;
     private boolean activo;
@@ -23,6 +25,14 @@ public class Alumno {
     public Alumno(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
+    }
+
+    public Carrera getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(Carrera carrera) {
+        this.carrera = carrera;
     }
 
     public Long getId() {
@@ -47,14 +57,6 @@ public class Alumno {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public String getCarrera() {
-        return carrera;
-    }
-
-    public void setCarrera(String carrera) {
-        this.carrera = carrera;
     }
 
     public Long getCodigoEstudiante() {

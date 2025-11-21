@@ -2,6 +2,7 @@ package com.cibertec.clase2.controllers;
 
 import com.cibertec.clase2.models.Alumno;
 import com.cibertec.clase2.services.AlumnoService;
+import com.cibertec.clase2.services.CarreraService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +18,11 @@ import java.util.List;
 public class AlumnoController {
 
     private AlumnoService alumnoService;
+    private CarreraService carreraService;
 
-    public AlumnoController(AlumnoService alumnoService) {
+    public AlumnoController(AlumnoService alumnoService, CarreraService carreraService) {
         this.alumnoService = alumnoService;
+        this.carreraService = carreraService;
     }
 
     @GetMapping
@@ -44,6 +47,7 @@ public class AlumnoController {
     @GetMapping("/nuevo")
     public String nuevoAlumno(Model model) {
         model.addAttribute("alumno", new Alumno());
+        model.addAttribute("carreras", carreraService.findAll()); //Agregamos la información de las carreras
         return "nuevoAlumno";
     }
 
