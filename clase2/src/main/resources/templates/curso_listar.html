@@ -14,8 +14,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            background: white;
             padding: 40px 20px;
         }
 
@@ -26,8 +25,8 @@
 
         .header {
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid #ddd;
+            border-radius: 8px;
             padding: 30px;
             margin-bottom: 30px;
         }
@@ -35,7 +34,7 @@
         h1 {
             color: #333;
             margin-bottom: 10px;
-            font-size: 32px;
+            font-size: 24px;
         }
 
         .subtitle {
@@ -52,37 +51,35 @@
 
         input[type="text"] {
             flex: 1;
-            padding: 12px 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
             font-size: 14px;
-            transition: all 0.3s ease;
+            transition: border-color 0.2s;
         }
 
         input[type="text"]:focus {
             outline: none;
             border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
         button {
-            padding: 12px 30px;
+            padding: 10px 20px;
             border: none;
-            border-radius: 10px;
+            border-radius: 4px;
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
         }
 
         .btn-search {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #667eea;
             color: white;
-        }
-
-        .btn-search:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
 
         .btn-clear {
@@ -90,14 +87,10 @@
             color: #333;
         }
 
-        .btn-clear:hover {
-            background: #d0d0d0;
-        }
-
         .table-container {
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid #ddd;
+            border-radius: 8px;
             padding: 30px;
             overflow-x: auto;
         }
@@ -108,40 +101,31 @@
         }
 
         thead {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f8f9fa;
         }
 
         thead th {
-            color: white;
-            padding: 15px;
+            color: #333;
+            padding: 12px;
             text-align: left;
             font-weight: 600;
             font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            border-bottom: 2px solid #ddd;
         }
 
-        thead th:first-child {
-            border-top-left-radius: 10px;
-        }
 
-        thead th:last-child {
-            border-top-right-radius: 10px;
-        }
 
         tbody tr {
             border-bottom: 1px solid #f0f0f0;
-            transition: all 0.3s ease;
         }
 
         tbody tr:hover {
             background-color: #f8f9fa;
-            transform: scale(1.01);
         }
 
         tbody td {
-            padding: 15px;
-            color: #333;
+            padding: 12px;
+            color: #555;
             font-size: 14px;
         }
 
@@ -151,15 +135,15 @@
             border-radius: 20px;
             font-size: 12px;
             font-weight: 600;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #667eea;
             color: white;
         }
 
         .no-results {
             text-align: center;
             padding: 40px;
-            color: #666;
-            font-size: 16px;
+            color: #999;
+            font-size: 14px;
         }
 
         .no-results-icon {
@@ -169,17 +153,74 @@
 
         .current-filter {
             background: #e8eaf6;
-            padding: 10px 15px;
-            border-radius: 10px;
+            padding: 8px 12px;
+            border-radius: 4px;
             margin-top: 15px;
             color: #5e35b1;
             font-size: 14px;
             display: inline-block;
         }
+
+        /* Topbar Navigation */
+        .topbar {
+            background: #667eea;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .topbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topbar-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .topbar-nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .topbar-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .topbar-nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .topbar-nav a.active {
+            background: rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+        }
     </style>
 </head>
 
 <body>
+    <!-- Topbar Navigation -->
+    <div class="topbar">
+        <div class="topbar-container">
+            <div class="topbar-title">Sistema de Gestión Académica</div>
+            <nav class="topbar-nav">
+                <a href="/alumno/nuevo">Registro de Alumnos</a>
+                <a href="/curso/listar" class="active">Listado de Cursos</a>
+            </nav>
+        </div>
+    </div>
+
     <div class="container">
         <div class="header">
             <h1>📖 Listado de Cursos</h1>

@@ -158,10 +158,67 @@
             padding: 40px;
             color: #999;
         }
+
+        /* Topbar Navigation */
+        .topbar {
+            background: #667eea;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .topbar-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topbar-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .topbar-nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .topbar-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .topbar-nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .topbar-nav a.active {
+            background: rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+        }
     </style>
 </head>
 
 <body>
+    <!-- Topbar Navigation -->
+    <div class="topbar">
+        <div class="topbar-container">
+            <div class="topbar-title">Sistema de Gestión Académica</div>
+            <nav class="topbar-nav">
+                <a href="/alumno/nuevo" class="active">Registro de Alumnos</a>
+                <a href="/curso/listar">Listado de Cursos</a>
+            </nav>
+        </div>
+    </div>
+
     <div class="container">
         <!-- Form Section -->
         <div class="form-section">
