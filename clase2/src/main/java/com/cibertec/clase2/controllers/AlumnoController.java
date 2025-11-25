@@ -31,8 +31,9 @@ public class AlumnoController {
     }
     
     @PostMapping("/guardar")
-    public String guardarAlumno(@ModelAttribute Alumno alumno) {
+    public String guardarAlumno(@ModelAttribute Alumno alumno, org.springframework.web.servlet.mvc.support.RedirectAttributes redirectAttributes) {
         alumnoService.save(alumno);
+        redirectAttributes.addFlashAttribute("success", true);
         return "redirect:/alumno/nuevo";
     }
 }
